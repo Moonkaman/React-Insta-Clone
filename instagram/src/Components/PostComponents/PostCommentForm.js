@@ -9,6 +9,7 @@ const PostCommentForm = props => {
       type="text"
       placeholder='Add a comment...'
       />
+      <a href="">...</a>
     </form>
   )
 }
