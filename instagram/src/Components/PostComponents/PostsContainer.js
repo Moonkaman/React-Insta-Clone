@@ -6,7 +6,7 @@ import './Posts.css'
 
 const PostsContainer = props => {
   return (
-    <div>
+    <div className='posts-cont'>
       {props.allPosts.map(post => <Post key={post.timestamp + post.username} post={post} />)}
     </div>
   )

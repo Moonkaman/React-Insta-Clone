@@ -1,3 +1,18 @@
+p {
+  margin: 0px;
+}
+
+.posts-cont {
+  padding-top: 50px;
+}
+
+.post-cont {
+  max-width: 640px;
+  margin: 0 auto;
+  box-shadow: 0 0 3px #dddddd;
+  margin-bottom: 50px;
+}
+
 .post-header {
   display: flex;
   align-items: center;
@@ -7,7 +22,7 @@
 }
 
 .post-header img {
-  width: 40px;
+  width: 35px;
   height: auto;
   border-radius: 100%;
   margin-right: 10px;
