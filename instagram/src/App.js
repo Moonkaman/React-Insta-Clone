@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SerachBar from './Components/HeaderNav/SearchBar';
+import HeaderNav from './Components/HeaderNav/HeaderNav'
 import PostsContainer from './Components/PostComponents/PostsContainer';
 
 import './App.css';
@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SearchBar />
+        <HeaderNav />
         <PostsContainer />
       </div>
     );

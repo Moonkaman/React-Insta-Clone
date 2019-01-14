@@ -1,0 +1,13 @@
+.header-nav-cont {
+  display: flex;
+  justify-content: space-between;
+}
+
+.insta-logo {
+  font-size: 30px;
+}
+
+.insta-cursive {
+  height: 40px;
+  width: auto;
+}
