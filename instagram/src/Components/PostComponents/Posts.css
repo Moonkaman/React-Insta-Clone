@@ -31,3 +31,18 @@ p {
 .post-header .username {
   font-weight: bold;
 }
+
+.post-likes {
+  text-align: left;
+  padding-top: 10px;
+}
+
+.post-likes i {
+  font-size: 26px;
+  margin-right: 14px;
+}
+
+.post-likes p {
+  font-weight: bold;
+  margin-top: 10px;
+}
