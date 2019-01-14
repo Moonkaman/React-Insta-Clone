@@ -1,0 +1,18 @@
+.post-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: white;
+  padding: 10px;
+}
+
+.post-header img {
+  width: 40px;
+  height: auto;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.post-header .username {
+  font-weight: bold;
+}
