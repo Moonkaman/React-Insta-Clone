@@ -54,8 +54,23 @@ p {
 .comments-cont {
   text-align: left;
   padding-top: 10px;
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 10px;
 }
 
 .comment-cont {
   margin-bottom: 5px;
+}
+
+.post-comments-likes form {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.post-comments-likes .add-comment-input {
+  font-size: 18px;
+  width: 100%;
+  padding: 8px 0;
+  outline: none;
+  border: none;
 }

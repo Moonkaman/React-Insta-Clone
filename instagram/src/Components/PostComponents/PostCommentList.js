@@ -11,7 +11,10 @@ const PostCommentList = props => {
 }
 
 PostCommentList.propTypes = {
-
+  comments: PropTypes.arrayOf(PropTypes.shape({
+    username: PropTypes.string,
+    text: PropTypes.string
+  }))
 }
 
 export default PostCommentList;

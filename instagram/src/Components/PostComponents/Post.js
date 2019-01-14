@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import PostHeader from './PostHeader';
 import PostLikes from './PostLikes';
 import PostCommentList from './PostCommentList';
+import PostCommentForm from './PostCommentForm';
 
 const Post = props => {
   return (
@@ -12,6 +13,7 @@ const Post = props => {
       <div className="post-comments-likes">
         <PostLikes likes={props.post.likes} />
         <PostCommentList comments={props.post.comments} />
+        <PostCommentForm />
       </div>
     </div>
   )
