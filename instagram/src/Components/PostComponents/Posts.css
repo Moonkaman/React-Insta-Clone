@@ -9,7 +9,7 @@ p {
 .post-cont {
   max-width: 640px;
   margin: 0 auto;
-  box-shadow: 0 0 3px #dddddd;
+  box-shadow: 0 0 3px #acacac;
   margin-bottom: 50px;
 }
 
@@ -32,6 +32,10 @@ p {
   font-weight: bold;
 }
 
+.post-comments-likes {
+  padding: 0 15px 10px 15px;
+}
+
 .post-likes {
   text-align: left;
   padding-top: 10px;
@@ -45,4 +49,13 @@ p {
 .post-likes p {
   font-weight: bold;
   margin-top: 10px;
+}
+
+.comments-cont {
+  text-align: left;
+  padding-top: 10px;
+}
+
+.comment-cont {
+  margin-bottom: 5px;
 }
