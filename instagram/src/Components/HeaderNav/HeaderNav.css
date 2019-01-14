@@ -1,13 +1,41 @@
 .header-nav-cont {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+  border-bottom: 1px solid lightgray;
 }
 
 .insta-logo {
   font-size: 30px;
+  position: relative;
+  border-right: 1px solid black;
+  /* bottom: 9px; */
+  padding-right: 18px;
 }
 
 .insta-cursive {
-  height: 40px;
+  height: 32px;
   width: auto;
+  margin-left: 15px;
+  position: relative;
+  top: 8px;
+}
+
+.search-bar {
+  background: #FAFAFA;
+  outline: none;
+  border: none;
+  border: 1px solid #DDDDDD;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.header-nav-cont div:nth-of-type(3) i {
+  font-size: 22px;
+  color: gray;
+  margin: 0 15px;
 }
