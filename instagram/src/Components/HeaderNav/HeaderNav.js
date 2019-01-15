@@ -16,7 +16,7 @@ const HeaderNav = props => {
           <img className='insta-cursive' src={instaLogo} alt="" />
         </div>
         <div>
-          <SearchBar />
+          <SearchBar searchInput={props.searchInput} handleSearchChange={props.handleSearchChange} handleSearch={props.handleSearch} />
         </div>
         <div>
           <i className="far fa-compass"></i>
