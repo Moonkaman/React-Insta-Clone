@@ -11,8 +11,14 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      allPosts: dummyData
+      allPosts: []
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      allPosts: dummyData
+    })
   }
 
   render() {
