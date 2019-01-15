@@ -7,7 +7,7 @@ import './Posts.css'
 const PostsContainer = props => {
   return (
     <div className='posts-cont'>
-      {props.allPosts.map(post => <Post key={post.timestamp + post.username} post={post} />)}
+      {props.allPosts.map(post => <Post key={post.timestamp + post.username} post={post} addComment={props.addComment} />)}
     </div>
   )
 }

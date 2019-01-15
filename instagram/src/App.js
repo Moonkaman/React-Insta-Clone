@@ -19,9 +19,25 @@ class App extends Component {
     return (
       <div className="App">
         <HeaderNav />
-        <PostsContainer allPosts={this.state.allPosts} />
+        <PostsContainer allPosts={this.state.allPosts} addComment={this.addComment} />
       </div>
     );
+  }
+
+  addComment = (username,timestamp,commentText, commentUser, e) => {
+    this.setState({
+      allPosts: this.state.allPosts.map(post => {
+        if(post.username === username && post.timestamp === timestamp) {
+          return {...post, comments: [...post.comments, {
+            username: commentUser,
+            text: commentText
+          }]
+          }
+        } else {
+          return post;
+        }
+      })
+    });
   }
 }
 
