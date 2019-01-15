@@ -16,7 +16,9 @@ const SearchBar = props => {
 }
 
 SearchBar.propTypes = {
-
+  searchInput: PropTypes.string,
+  handleSearchChange: PropTypes.func,
+  handleSearch: PropTypes.func
 }
 
 export default SearchBar

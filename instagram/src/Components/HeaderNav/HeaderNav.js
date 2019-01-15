@@ -29,7 +29,9 @@ const HeaderNav = props => {
 }
 
 HeaderNav.propTypes = {
-
+  searchInput: PropTypes.string,
+  handleSearchChange: PropTypes.func,
+  handleSearch: PropTypes.func
 }
 
 export default HeaderNav;

@@ -18,7 +18,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log(JSON.parse(localStorage.getItem('fakeInstaDataNB')));
     if(localStorage.getItem('fakeInstaDataNB') === null) {
       localStorage.setItem('fakeInstaDataNB', JSON.stringify(dummyData));
       this.setState({

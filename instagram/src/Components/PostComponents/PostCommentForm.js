@@ -11,13 +11,15 @@ const PostCommentForm = props => {
       value={props.commentInput}
       onChange={props.handleCommentInput}
       />
-      <a href="">...</a>
+      <p>...</p>
     </form>
   )
 }
 
 PostCommentForm.propTypes = {
-
+  handleSubmit: PropTypes.func,
+  commentInput: PropTypes.string,
+  handleCommentInput: PropTypes.func
 }
 
 export default PostCommentForm;
