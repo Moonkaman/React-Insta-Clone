@@ -18,10 +18,19 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      allPosts: dummyData,
-      searchPosts: dummyData
-    })
+    console.log(JSON.parse(localStorage.getItem('fakeInstaDataNB')));
+    if(localStorage.getItem('fakeInstaDataNB') === null) {
+      localStorage.setItem('fakeInstaDataNB', JSON.stringify(dummyData));
+      this.setState({
+        allPosts: dummyData,
+        searchPosts: dummyData
+      })
+    } else {
+      this.setState({
+        allPosts: JSON.parse(localStorage.getItem('fakeInstaDataNB')),
+        searchPosts: JSON.parse(localStorage.getItem('fakeInstaDataNB'))
+      })
+    }
   }
 
   addComment = (username,timestamp,commentText, commentUser, e) => {
@@ -37,7 +46,10 @@ class App extends Component {
           return post;
         }
       })
-    }, _ => this.handleSearch());
+    }, _ => {
+      this.handleSearch()
+      localStorage.setItem('fakeInstaDataNB', JSON.stringify(this.state.allPosts));
+    });
   }
 
   changeLikes = (username,timestamp,action) => {
@@ -45,15 +57,18 @@ class App extends Component {
       allPosts: this.state.allPosts.map(post => {
         if(username === post.username && timestamp === post.timestamp) {
           if(action === 'like') {
-            return {...post, likes: ++post.likes};
+            return {...post, likes: ++post.likes, liked: true};
           } else {
-            return {...post, likes: --post.likes};
+            return {...post, likes: --post.likes, liked: false};
           }
         } else {
           return post;
         }
       })
-    }, _ => this.handleSearch())
+    }, _ => {
+      this.handleSearch()
+      localStorage.setItem('fakeInstaDataNB', JSON.stringify(this.state.allPosts));
+    })
   }
 
   handleSearchChange = e => {

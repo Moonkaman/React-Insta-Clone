@@ -14,6 +14,12 @@ class Post extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.setState({
+      liked: this.props.post.liked
+    })
+  }
+
   render() {
     return (
       <div className='post-cont'>
