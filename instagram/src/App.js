@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import HeaderNav from './Components/HeaderNav/HeaderNav'
-import PostsContainer from './Components/PostComponents/PostsContainer';
+import PostPage from './Components/PostComponents/PostPage';
+import LoginPage from './Components/LoginComponents/LoginPage';
 
 import dummyData from './dummy-data';
 
@@ -88,8 +88,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <HeaderNav searchInput={this.state.searchInput} handleSearchChange={this.handleSearchChange} handleSearch={this.handleSearch} />
-        <PostsContainer allPosts={this.state.searchInput !== '' ? this.state.searchPosts : this.state.allPosts} addComment={this.addComment} changeLikes={this.changeLikes} />
+        {/* <PostPage 
+        searchInput={this.state.searchInput}
+        handleSearchChange={this.handleSearchChange}
+        handleSearch={this.handleSearch}
+        allPosts={this.state.searchInput !== '' ? this.state.searchPosts : this.state.allPosts}
+        addComment={this.addComment}
+        changeLikes={this.changeLikes}
+        /> */}
+        <LoginPage />
       </div>
     );
   }
