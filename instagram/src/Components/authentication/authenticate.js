@@ -1,6 +1,6 @@
 import React from 'react';
 
-const authenticate = ComponentPost => ComponentLogin => props =>
+const authenticate = Component1 => Component2 =>
   class extends React.Component {
     constructor(props) {
       super(props)
@@ -19,7 +19,7 @@ const authenticate = ComponentPost => ComponentLogin => props =>
 
     render() {
       if(this.state.loggedIn === true) {
-        return <ComponentPost
+        return <Component2
         searchInput={this.props.searchInput}
         handleSearchChange={this.props.handleSearchChange}
         handleSearch={this.props.handleSearch}
@@ -28,8 +28,8 @@ const authenticate = ComponentPost => ComponentLogin => props =>
         changeLikes={this.props.changeLikes}
         />
       }
-      
-      return <ComponentLogin />
+
+      return <Component1 />
     }
   }
 

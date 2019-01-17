@@ -3,115 +3,14 @@ import PostPage from './Components/PostComponents/PostPage';
 import LoginPage from './Components/LoginComponents/LoginPage';
 import authenticate from './Components/authentication/authenticate';
 
-import dummyData from './dummy-data';
-
 import './App.css';
 
-class App extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      allPosts: [],
-      searchPosts: [],
-      searchInput: '',
-    }
-  }
-
-  componentDidMount() {
-    if(localStorage.getItem('fakeInstaDataNB') === null) {
-      localStorage.setItem('fakeInstaDataNB', JSON.stringify(dummyData));
-      this.setState({
-        allPosts: dummyData,
-        searchPosts: dummyData
-      })
-    } else {
-      this.setState({
-        allPosts: JSON.parse(localStorage.getItem('fakeInstaDataNB')),
-        searchPosts: JSON.parse(localStorage.getItem('fakeInstaDataNB'))
-      })
-    }
-  }
-
-  addComment = (username,timestamp,commentText) => {
-    this.setState({
-      allPosts: this.state.allPosts.map(post => {
-        if(post.username === username && post.timestamp === timestamp) {
-          return {...post, comments: [...post.comments, {
-            username: localStorage.getItem('nb-insta-username'),
-            text: commentText
-          }]
-          }
-        } else {
-          return post;
-        }
-      })
-    }, _ => {
-      this.handleSearch()
-      localStorage.setItem('fakeInstaDataNB', JSON.stringify(this.state.allPosts));
-    });
-  }
-
-  changeLikes = (username,timestamp,action) => {
-    this.setState({
-      allPosts: this.state.allPosts.map(post => {
-        if(username === post.username && timestamp === post.timestamp) {
-          if(action === 'like') {
-            return {...post, likes: ++post.likes, liked: true};
-          } else {
-            return {...post, likes: --post.likes, liked: false};
-          }
-        } else {
-          return post;
-        }
-      })
-    }, _ => {
-      this.handleSearch()
-      localStorage.setItem('fakeInstaDataNB', JSON.stringify(this.state.allPosts));
-    })
-  }
-
-  handleSearchChange = e => {
-    this.setState({
-      searchInput: e.target.value
-    }, _ => this.handleSearch())
-  }
-
-  handleSearch = e => {
-    if(e !== undefined) {
-      e.preventDefault();
-    }
-    this.setState({
-      searchPosts: this.state.allPosts.filter(post => post.username.toLowerCase().includes(this.state.searchInput.toLowerCase()))
-    })
-  }
-
-  render() {;
+const App = props => {
     return (
       <div className="App">
-        <RenderThis
-          searchInput={this.state.searchInput}
-          handleSearchChange={this.handleSearchChange}
-          handleSearch={this.handleSearch}
-          allPosts={this.state.searchInput !== '' ? this.state.searchPosts : this.state.allPosts}
-          addComment={this.addComment}
-          changeLikes={this.changeLikes}
-        />
+        <PostPage />
       </div>
     );
-  }
 }
 
-const RenderThis = authenticate(PostPage)(LoginPage)();
-
-export default App;
-
-{/* <PostPage 
-searchInput={this.state.searchInput}
-handleSearchChange={this.handleSearchChange}
-handleSearch={this.handleSearch}
-allPosts={this.state.searchInput !== '' ? this.state.searchPosts : this.state.allPosts}
-addComment={this.addComment}
-changeLikes={this.changeLikes}
-/>
-<LoginPage /> */}
+export default authenticate(LoginPage)(App);
