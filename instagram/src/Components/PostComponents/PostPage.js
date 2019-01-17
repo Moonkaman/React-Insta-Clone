@@ -15,6 +15,7 @@ class PostPage extends React.Component{
   }
 
   componentDidMount() {
+    console.log('%cUsers can only delete their own comments, so log in using one of the usernames already in the comments or add a comment and you can delete it by hovering over it and clicking the X', 'background: tomato; font-weight: bold; color: white; padding: 5px; font-size: 16px; border-radius: 6px')
     if(localStorage.getItem('fakeInstaDataNB') === null) {
       localStorage.setItem('fakeInstaDataNB', JSON.stringify(dummyData));
       this.setState({
