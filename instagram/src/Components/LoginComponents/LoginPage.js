@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
 import LoginForm from './LoginForm';
 
-import './Login.css'
+//import './Login.css'
 
 class LoginPage extends Component {
   constructor() {
