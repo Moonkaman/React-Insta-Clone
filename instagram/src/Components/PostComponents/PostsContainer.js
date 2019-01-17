@@ -13,7 +13,7 @@ const PostsContainerWrapper = styled.div`
 const PostsContainer = props => {
   return (
     <PostsContainerWrapper className='posts-cont'>
-      {props.allPosts.map(post => <Post key={post.timestamp + post.username} post={post} addComment={props.addComment} changeLikes={props.changeLikes} />)}
+      {props.allPosts.map(post => <Post key={post.timestamp + post.username} post={post} addComment={props.addComment} changeLikes={props.changeLikes} removeComment={props.removeComment} />)}
     </PostsContainerWrapper>
   )
 }
@@ -29,7 +29,10 @@ PostsContainer.propTypes = {
       username: PropTypes.string,
       text: PropTypes.string
     }))
-  }))
+  })),
+  addComment: PropTypes.func,
+  changeLikes: PropTypes.func,
+  removeComment: PropTypes.func
 };
 
 export default PostsContainer;

@@ -41,7 +41,7 @@ class Post extends React.Component {
         <img src={this.props.post.imageUrl} alt="" className="post-main-img"/>
         <PostCommentsLikesWrapper>
           <PostLikes likes={this.props.post.likes} liked={this.state.liked} handleLike={this.handleLike} />
-          <PostCommentList comments={this.props.post.comments} />
+          <PostCommentList comments={this.props.post.comments} postUsername={this.props.post.username} timestamp={this.props.post.timestamp} removeComment={this.props.removeComment} />
           <PostCommentForm
           commentInput={this.state.commentInput}
           handleCommentInput={this.handleCommentInput}
@@ -90,7 +90,10 @@ Post.propTypes = {
       username: PropTypes.string,
       text: PropTypes.string
     }))
-  })
+  }),
+  addComment: PropTypes.func,
+  changeLikes: PropTypes.func,
+  removeComment: PropTypes.func
 }
 
 export default Post

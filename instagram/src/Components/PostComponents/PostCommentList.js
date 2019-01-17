@@ -14,7 +14,7 @@ const CommentsContainer = styled.div`
 const PostCommentList = props => {
   return (
     <CommentsContainer>
-      {props.comments.map((comment, index) => <PostComment key={comment.username + index} username={comment.username} commentText={comment.text} />)}
+      {props.comments.map((comment, index) => <PostComment key={comment.username + index} index={index} username={comment.username} postUsername={props.postUsername} timestamp={props.timestamp} commentText={comment.text} removeComment={props.removeComment} />)}
     </CommentsContainer>
   )
 }
@@ -23,7 +23,10 @@ PostCommentList.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({
     username: PropTypes.string,
     text: PropTypes.string
-  }))
+  })),
+  removeComment: PropTypes.func,
+  timestamp: PropTypes.string,
+  postUsername: PropTypes.string
 }
 
 export default PostCommentList;

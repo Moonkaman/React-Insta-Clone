@@ -48,6 +48,21 @@ class PostPage extends React.Component{
     });
   }
 
+  removeComment = (username, timestamp, commentIndex) => {
+    this.setState({
+      allPosts: this.state.allPosts.map(post => {
+        if(post.username === username && post.timestamp === timestamp) {
+          return {...post, comments: post.comments.filter((comment, index) => index !== commentIndex)};
+        } else {
+          return post;
+        }
+      })
+    }, _ => {
+      this.handleSearch()
+      localStorage.setItem('fakeInstaDataNB', JSON.stringify(this.state.allPosts));
+    })
+  }
+
   changeLikes = (username,timestamp,action) => {
     this.setState({
       allPosts: this.state.allPosts.map(post => {
@@ -87,7 +102,7 @@ class PostPage extends React.Component{
     return (
       <>
         <HeaderNav searchInput={this.state.searchInput} handleSearchChange={this.handleSearchChange} handleSearch={this.handleSearch} />
-        <PostsContainer allPosts={this.state.searchInput !== '' ? this.state.searchPosts : this.state.allPosts} addComment={this.addComment} changeLikes={this.changeLikes} />
+        <PostsContainer allPosts={this.state.searchInput !== '' ? this.state.searchPosts : this.state.allPosts} addComment={this.addComment} changeLikes={this.changeLikes} removeComment={this.removeComment} />
       </>
     )
   }
