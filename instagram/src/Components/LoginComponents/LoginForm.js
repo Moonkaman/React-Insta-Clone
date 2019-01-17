@@ -17,7 +17,10 @@ const LoginForm = props => {
 }
 
 LoginForm.propTypes = {
-
+  logIn: PropTypes.func,
+  usernameInput: PropTypes.string,
+  passwordInput: PropTypes.string,
+  handleChange: PropTypes.func
 }
 
 export default LoginForm
