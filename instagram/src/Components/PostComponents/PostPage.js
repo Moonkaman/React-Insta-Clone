@@ -74,6 +74,7 @@ class PostPage extends React.Component{
   }
 
   handleSearch = e => {
+    // This if statement makes sure I can call this function without an event as well
     if(e !== undefined) {
       e.preventDefault();
     }

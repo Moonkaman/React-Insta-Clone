@@ -18,7 +18,7 @@ const App = props => {
     );
 }
 
-// More common way to handle an hoc in real projects
+// More common way to handle an HOC in real projects
 const ConditionalView = authenticate(LoginPage)(PostPage);
 
 export default App;
