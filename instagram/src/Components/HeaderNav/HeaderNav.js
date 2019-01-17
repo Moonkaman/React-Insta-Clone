@@ -41,6 +41,34 @@ const HeaderButtons = styled.i`
   font-size: 22px;
   color: gray;
   margin: 0 15px;
+  position: relative;
+  top: 3px;
+`
+
+const FlexContainer = styled.div`
+  display: flex;
+`
+
+const LogoutForm = styled.form`
+  display: block;
+`
+
+const LogoutBtn = styled.button`
+  background: none;
+  outline: none;
+  border: none;
+  border: 2px solid black;
+  font-weight: bold;
+  padding: 5px 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  &:hover {
+    color: white;
+    background: black
+  }
 `
 
 const HeaderNav = props => {
@@ -54,11 +82,12 @@ const HeaderNav = props => {
         <div>
           <SearchBar searchInput={props.searchInput} handleSearchChange={props.handleSearchChange} handleSearch={props.handleSearch} />
         </div>
-        <div>
+        <FlexContainer>
           <HeaderButtons className="far fa-compass"></HeaderButtons>
           <HeaderButtons className="far fa-heart"></HeaderButtons>
           <HeaderButtons className="far fa-user"></HeaderButtons>
-        </div>
+        <LogoutForm><LogoutBtn onClick={props.logOut}>Sign Out</LogoutBtn></LogoutForm>
+        </FlexContainer>
       </NavHeaderFlex>
     </NavHeaderContainer>
   )

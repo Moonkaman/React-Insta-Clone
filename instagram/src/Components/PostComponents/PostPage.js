@@ -48,19 +48,23 @@ class PostPage extends React.Component{
     });
   }
 
-  removeComment = (username, timestamp, commentIndex) => {
-    this.setState({
-      allPosts: this.state.allPosts.map(post => {
-        if(post.username === username && post.timestamp === timestamp) {
-          return {...post, comments: post.comments.filter((comment, index) => index !== commentIndex)};
-        } else {
-          return post;
-        }
+  removeComment = (username, timestamp, commentIndex, commentUsername) => {
+    if(localStorage.getItem('nb-insta-username') === commentUsername){
+      this.setState({
+        allPosts: this.state.allPosts.map(post => {
+          if(post.username === username && post.timestamp === timestamp) {
+            return {...post, comments: post.comments.filter((comment, index) => index !== commentIndex)};
+          } else {
+            return post;
+          }
+        })
+      }, _ => {
+        this.handleSearch()
+        localStorage.setItem('fakeInstaDataNB', JSON.stringify(this.state.allPosts));
       })
-    }, _ => {
-      this.handleSearch()
-      localStorage.setItem('fakeInstaDataNB', JSON.stringify(this.state.allPosts));
-    })
+    } else {
+      alert(`Please log into that account if you want to delete that comment`)
+    }
   }
 
   changeLikes = (username,timestamp,action) => {
@@ -98,10 +102,14 @@ class PostPage extends React.Component{
     })
   }
 
+  logOut = _ => {
+    localStorage.removeItem('nb-insta-username');
+  }
+
   render() {
     return (
       <>
-        <HeaderNav searchInput={this.state.searchInput} handleSearchChange={this.handleSearchChange} handleSearch={this.handleSearch} />
+        <HeaderNav searchInput={this.state.searchInput} handleSearchChange={this.handleSearchChange} handleSearch={this.handleSearch} logOut={this.logOut} />
         <PostsContainer allPosts={this.state.searchInput !== '' ? this.state.searchPosts : this.state.allPosts} addComment={this.addComment} changeLikes={this.changeLikes} removeComment={this.removeComment} />
       </>
     )

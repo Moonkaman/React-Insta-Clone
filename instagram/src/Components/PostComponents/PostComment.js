@@ -25,7 +25,7 @@ const PostComment = props => {
   return (
     <CommentContainer>
       <Comment><strong>{props.username}</strong> {props.commentText}</Comment>
-      <DeleteCommentIcon className="fas fa-times delete-comment-btn" onClick={_ => props.removeComment(props.postUsername, props.timestamp, props.index)}></DeleteCommentIcon>
+      {localStorage.getItem('nb-insta-username') === props.username && <DeleteCommentIcon className="fas fa-times delete-comment-btn" onClick={_ => props.removeComment(props.postUsername, props.timestamp, props.index, props.username)}></DeleteCommentIcon>}  
     </CommentContainer>
   )
 }
