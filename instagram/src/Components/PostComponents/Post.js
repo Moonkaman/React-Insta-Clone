@@ -15,6 +15,10 @@ const PostContainerWrapper = styled.div`
   border-radius: 3px;
 `
 
+const PostCommentsLikesWrapper = styled.div`
+  padding: 0 15px 10px 15px;
+`
+
 class Post extends React.Component {
   constructor(props) {
     super(props)
@@ -35,7 +39,7 @@ class Post extends React.Component {
       <PostContainerWrapper className='post-cont'>
         <PostHeader src={this.props.post.thumbnailUrl} username={this.props.post.username} />
         <img src={this.props.post.imageUrl} alt="" className="post-main-img"/>
-        <div className="post-comments-likes">
+        <PostCommentsLikesWrapper>
           <PostLikes likes={this.props.post.likes} liked={this.state.liked} handleLike={this.handleLike} />
           <PostCommentList comments={this.props.post.comments} />
           <PostCommentForm
@@ -43,7 +47,7 @@ class Post extends React.Component {
           handleCommentInput={this.handleCommentInput}
           handleSubmit={this.handleSubmit}
           />
-        </div>
+        </PostCommentsLikesWrapper>
       </PostContainerWrapper>
     )
   }

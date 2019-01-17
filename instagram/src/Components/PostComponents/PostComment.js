@@ -1,11 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components'
+
+const CommentContainer = styled.div`
+  margin-bottom: 5px;
+`
+const Comment = styled.p`
+  margin: 0px;
+`
 
 const PostComment = props => {
   return (
-    <div className='comment-cont'>
-      <p><strong>{props.username}</strong> {props.commentText}</p>
-    </div>
+    <CommentContainer>
+      <Comment><strong>{props.username}</strong> {props.commentText}</Comment>
+    </CommentContainer>
   )
 }
 
