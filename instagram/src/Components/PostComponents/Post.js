@@ -1,9 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import PostHeader from './PostHeader';
 import PostLikes from './PostLikes';
 import PostCommentList from './PostCommentList';
 import PostCommentForm from './PostCommentForm';
+
+const PostContainerWrapper = styled.div`
+  max-width: 640px;
+  margin: 0 auto;
+  box-shadow: 0 0 3px #acacac;
+  margin-bottom: 50px;
+  border-radius: 3px;
+`
 
 class Post extends React.Component {
   constructor(props) {
@@ -22,7 +32,7 @@ class Post extends React.Component {
 
   render() {
     return (
-      <div className='post-cont'>
+      <PostContainerWrapper className='post-cont'>
         <PostHeader src={this.props.post.thumbnailUrl} username={this.props.post.username} />
         <img src={this.props.post.imageUrl} alt="" className="post-main-img"/>
         <div className="post-comments-likes">
@@ -34,7 +44,7 @@ class Post extends React.Component {
           handleSubmit={this.handleSubmit}
           />
         </div>
-      </div>
+      </PostContainerWrapper>
     )
   }
 

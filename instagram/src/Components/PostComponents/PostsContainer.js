@@ -1,14 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import Post from './Post';
 
-import './Posts.css'
+//import './Posts.css'
+
+const PostsContainerWrapper = styled.div`
+  padding-top: 100px;
+`
 
 const PostsContainer = props => {
   return (
-    <div className='posts-cont'>
+    <PostsContainerWrapper className='posts-cont'>
       {props.allPosts.map(post => <Post key={post.timestamp + post.username} post={post} addComment={props.addComment} changeLikes={props.changeLikes} />)}
-    </div>
+    </PostsContainerWrapper>
   )
 }
 
