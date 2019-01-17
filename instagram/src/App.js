@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PostPage from './Components/PostComponents/PostPage';
 import LoginPage from './Components/LoginComponents/LoginPage';
+import authenticate from './Components/authentication/authenticate';
 
 import dummyData from './dummy-data';
 
@@ -32,12 +33,12 @@ class App extends Component {
     }
   }
 
-  addComment = (username,timestamp,commentText, commentUser, e) => {
+  addComment = (username,timestamp,commentText) => {
     this.setState({
       allPosts: this.state.allPosts.map(post => {
         if(post.username === username && post.timestamp === timestamp) {
           return {...post, comments: [...post.comments, {
-            username: commentUser,
+            username: localStorage.getItem('nb-insta-username'),
             text: commentText
           }]
           }
@@ -85,21 +86,32 @@ class App extends Component {
     })
   }
 
-  render() {
+  render() {;
     return (
       <div className="App">
-        {/* <PostPage 
-        searchInput={this.state.searchInput}
-        handleSearchChange={this.handleSearchChange}
-        handleSearch={this.handleSearch}
-        allPosts={this.state.searchInput !== '' ? this.state.searchPosts : this.state.allPosts}
-        addComment={this.addComment}
-        changeLikes={this.changeLikes}
-        /> */}
-        <LoginPage />
+        <RenderThis
+          searchInput={this.state.searchInput}
+          handleSearchChange={this.handleSearchChange}
+          handleSearch={this.handleSearch}
+          allPosts={this.state.searchInput !== '' ? this.state.searchPosts : this.state.allPosts}
+          addComment={this.addComment}
+          changeLikes={this.changeLikes}
+        />
       </div>
     );
   }
 }
 
+const RenderThis = authenticate(PostPage)(LoginPage)();
+
 export default App;
+
+{/* <PostPage 
+searchInput={this.state.searchInput}
+handleSearchChange={this.handleSearchChange}
+handleSearch={this.handleSearch}
+allPosts={this.state.searchInput !== '' ? this.state.searchPosts : this.state.allPosts}
+addComment={this.addComment}
+changeLikes={this.changeLikes}
+/>
+<LoginPage /> */}
